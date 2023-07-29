@@ -8,14 +8,14 @@ contract ErrorTest is Test {
     Error public err;
 
     function setUp() public {
-        err= new Error ();
+        err = new Error ();
     }
 
     function testFail() public {
         err.throwError();
     }
 
-    // we can also use vm.expectRevert() 
+    // we can also use vm.expectRevert()
     function testRevert() public {
         vm.expectRevert();
         err.throwError();

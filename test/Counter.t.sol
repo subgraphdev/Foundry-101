@@ -12,7 +12,6 @@ contract CounterTest is Test {
         counter = new Counter();
     }
 
-
     function testCount() public {
         console.log("Let deploy our contract");
         assertEq(counter.count(), 0);
@@ -25,12 +24,12 @@ contract CounterTest is Test {
     }
 
     function testDec() public {
-         console.log("Testing the decrement function");
+        console.log("Testing the decrement function");
         // count will set to 1
         counter.inc();
         // count will set  2
         counter.inc();
-        // count well decremented by 1 
+        // count well decremented by 1
         counter.dec();
         assertEq(counter.count(), 1);
     }

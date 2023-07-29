@@ -12,8 +12,6 @@ contract HelloWorldTest is Test {
     }
 
     function testGreet() public {
-        assertEq(helloWorld.greet(),"Hello, world!");
+        assertEq(helloWorld.greet(), "Hello, world!");
     }
-
-    
 }

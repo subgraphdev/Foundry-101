@@ -5,7 +5,6 @@ import "forge-std/Test.sol";
 import "../src/Auction.sol";
 
 contract TestAuction is Test {
-
     // vm.warp() - set block.timestamp to future timestamp
     // vm.roll - set block.number
     // skip - increment current timestamp
@@ -16,7 +15,7 @@ contract TestAuction is Test {
 
     function setUp() public {
         auction = new Auction();
-        startAt =  block.timestamp;
+        startAt = block.timestamp;
     }
 
     function testBidFail() public {
@@ -27,7 +26,6 @@ contract TestAuction is Test {
     function testBid() public {
         vm.warp(startAt + 1 days);
         auction.bid();
-
     }
 
     function testBidFailAfterEnd() public {
@@ -37,13 +35,12 @@ contract TestAuction is Test {
     }
 
     function testTimestamp() public {
-
         // skip - increment the current timestamp
         uint256 t = block.timestamp;
 
         skip(100);
 
-        assertEq(block.timestamp, t +100);
+        assertEq(block.timestamp, t + 100);
 
         // rewind - decrement the current timestamp
         rewind(10);
@@ -51,10 +48,8 @@ contract TestAuction is Test {
     }
 
     function testBlockNumber() public {
-
         uint256 b = block.number;
         vm.roll(999);
-        assertEq(block.number,  999);
-
+        assertEq(block.number, 999);
     }
 }
